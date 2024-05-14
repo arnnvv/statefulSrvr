@@ -1,10 +1,10 @@
 import { stLogger } from "./logger";
-import { gameManager } from "./store";
+import { GameManager } from "./store";
 
 stLogger();
 
 setInterval(() => {
-  gameManager.addGame({
+  GameManager.getInstance().addGame({
     id: Math.random().toString(),
     whitePlayerName: "Arnav",
     blackPlayerName: "Nikhil",

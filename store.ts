@@ -5,8 +5,18 @@ interface Game {
   moves: string[];
 }
 
-class GameManager {
+export class GameManager {
+  private static instance: GameManager;
   private games: Game[] = [];
+
+  private constructor() {
+    //Now new instance of GameManager can't be created
+  }
+
+  public static getInstance(): GameManager {
+    if (!GameManager.instance) GameManager.instance = new GameManager();
+    return GameManager.instance;
+  }
 
   public addGame(game: Game) {
     this.games.push(game);
@@ -25,5 +35,3 @@ class GameManager {
     console.log(this.games);
   }
 }
-
-export const gameManager = new GameManager();
